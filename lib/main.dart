@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import './ui/first_screen.dart';
+import './ui/second_screen.dart';
+import './ui/my_custom_from.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -12,7 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      initialRoute: "/",
+      routes:{
+        "/": (context) => MyCustomFrom(),
+        "/first" :(context) => FirstScreen(),
+        "/second":(context) => SecondScreen(),
+        },
     );
   }
 }
@@ -87,7 +97,7 @@ class MyHomePageState extends State<Counterscroe> {
   }
 }
 
-
+// TabBar
 class MyHomePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -114,5 +124,4 @@ class MyHomePage extends StatelessWidget{
       )
     );
   }
-
 }
