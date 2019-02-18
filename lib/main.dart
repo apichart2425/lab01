@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './ui/first_screen.dart';
 import './ui/second_screen.dart';
 import './ui/my_custom_from.dart';
+import 'ui/img_picker.dart';
 
 
 void main() => runApp(MyApp());
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
       // home: MyHomePage(),
       initialRoute: "/",
       routes:{
-        "/": (context) => MyCustomFrom(),
+        "/main": (context) => MyCustomFrom(),
         "/first" :(context) => FirstScreen(),
         "/second":(context) => SecondScreen(),
+        "/": (context) => ImagePicker(),
         },
     );
   }
