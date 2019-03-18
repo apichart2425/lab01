@@ -4,6 +4,7 @@ import './ui/second_screen.dart';
 import './ui/my_custom_from.dart';
 import 'ui/img_picker.dart';
 import './ui/listdata.dart';
+import './ui/todo_screem.dart';
 
 
 void main() => runApp(MyApp());
@@ -23,9 +24,10 @@ class MyApp extends StatelessWidget {
       routes:{
         "/main": (context) => MyCustomFrom(),
         "/first" :(context) => FirstScreen(),
-        "/":(context) => SecondScreen(),
+        "/SecondScreen":(context) => SecondScreen(),
         "/img": (context) => ImagePicker(),
         "/listdata": (context) => ListData(),
+        "/": (context) => TodoScreen(),
         },
     );
   }
