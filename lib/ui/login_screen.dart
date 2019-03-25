@@ -10,7 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
-  final _formkey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -20,8 +20,8 @@ class LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(18),
+        key: _formKey,
         child: Form(
-          // key: _formKey,
           child: Column(
             children: <Widget>[
               TextFormField(

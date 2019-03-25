@@ -10,7 +10,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class RegisterScreenState extends State<RegisterScreen> {
-  final _formkey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
+  final _UserName = TextEditingController();
+  final _Password = TextEditingController();
+  
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -22,7 +25,7 @@ class RegisterScreenState extends State<RegisterScreen> {
       body: Padding(
         padding: EdgeInsets.all(18),
         child: Form(
-          // key: _formKey,
+          key: _formKey,
           child: Column(
             children: <Widget>[
               TextFormField(
@@ -59,6 +62,12 @@ class RegisterScreenState extends State<RegisterScreen> {
                     child: RaisedButton(
                       child: Text("Sing-Up"),
                       onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          // If the form is valid, we want to show a Snackbar
+                          Scaffold.of(context).showSnackBar(
+                              SnackBar(content: Text('Processing Data')));
+                        }
+                        //set state to check account on firebase
                         auth
                             .createUserWithEmailAndPassword(
                                 email: "packapichart@gmail.com", password: "123456789")
