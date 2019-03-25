@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import './ui/first_screen.dart';
-import './ui/second_screen.dart';
-import './ui/my_custom_from.dart';
-import 'ui/img_picker.dart';
-import './ui/listdata.dart';
-import './ui/todo_screem.dart';
+// import './ui/first_screen.dart';
+// import './ui/second_screen.dart';
+// import './ui/my_custom_from.dart';
+// import 'ui/img_picker.dart';
+// import './ui/listdata.dart';
+// import './ui/todo_screem.dart';
+import './ui/login_screen.dart';
+import './ui/register_srceen.dart';
 
 
 void main() => runApp(MyApp());
@@ -22,12 +24,16 @@ class MyApp extends StatelessWidget {
       // home: MyHomePage(),
       initialRoute: "/",
       routes:{
-        "/main": (context) => MyCustomFrom(),
-        "/first" :(context) => FirstScreen(),
-        "/SecondScreen":(context) => SecondScreen(),
-        "/img": (context) => ImagePicker(),
-        "/listdata": (context) => ListData(),
-        "/": (context) => TodoScreen(),
+        // "/main": (context) => MyCustomFrom(),
+        // "/first" :(context) => FirstScreen(),
+        // "/SecondScreen":(context) => SecondScreen(),
+        // "/img": (context) => ImagePicker(),
+        // "/listdata": (context) => ListData(),
+        // "/z": (context) => TodoScreen(),
+        "/": (context) => LoginScreen(),
+        "/singup": (context) => RegisterScreen(),        
+        // "/": (context) => TodoScreen(),
+        
         },
     );
   }
