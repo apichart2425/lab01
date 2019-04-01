@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // import './ui/todo_screem.dart';
 import './ui/login_screen.dart';
 import './ui/register_srceen.dart';
+import './ui/book_screen.dart';
 
 
 void main() => runApp(MyApp());
@@ -30,9 +31,10 @@ class MyApp extends StatelessWidget {
         // "/img": (context) => ImagePicker(),
         // "/listdata": (context) => ListData(),
         // "/z": (context) => TodoScreen(),
-        "/": (context) => LoginScreen(),
+        // "/": (context) => LoginScreen(),
         "/singup": (context) => RegisterScreen(),        
         // "/": (context) => TodoScreen(),
+        "/": (context) => BookScreen(),
         
         },
     );

@@ -13,9 +13,12 @@ class RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   final _UserName = TextEditingController();
   final _Password = TextEditingController();
-  
 
   FirebaseAuth auth = FirebaseAuth.instance;
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController RePasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             children: <Widget>[
               TextFormField(
+                controller: emailController,
                 decoration: InputDecoration(labelText: "Email"),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
@@ -38,6 +42,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               TextFormField(
+                controller: passwordController,
                 decoration: InputDecoration(labelText: "Password"),
                 obscureText: true,
                 validator: (value) {
@@ -47,6 +52,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               TextFormField(
+                controller: RePasswordController,
                 decoration: InputDecoration(labelText: "Password"),
                 obscureText: true,
                 validator: (value) {
@@ -68,15 +74,23 @@ class RegisterScreenState extends State<RegisterScreen> {
                               SnackBar(content: Text('Processing Data')));
                         }
                         //set state to check account on firebase
-                        auth
-                            .createUserWithEmailAndPassword(
-                                email: "packapichart@gmail.com", password: "123456789")
-                            .then((FirebaseUser user) {
-                          user.sendEmailVerification(); //send email confirm
-                          print("return from firebase ${user.email}");
-                        }).catchError((error) {
-                          print("$error");
-                        });
+
+                        if (_formKey.currentState.validate()) {
+                          auth
+                              .createUserWithEmailAndPassword(
+                                  email: emailController.text,
+                                  password: passwordController.text)
+                              .then((FirebaseUser user) {
+                            user.sendEmailVerification().then((user){
+                              Navigator.pop(context);
+                            }); //send email confirm
+                            print("return from firebase ${user.email}");
+                          }).catchError((error) {
+                            print("$error");
+                          });
+                        }else{
+                          print("error");
+                        }
                       },
                     ),
                   ),
